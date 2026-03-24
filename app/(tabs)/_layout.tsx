@@ -1,33 +1,50 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
+        headerShown: true,
+        headerStyle: { backgroundColor: '#111827' },
+        headerTintColor: '#fff',
+        tabBarStyle: { backgroundColor: '#1F2937', borderTopColor: '#374151' },
+        tabBarActiveTintColor: '#3B82F6',
+        tabBarInactiveTintColor: '#9CA3AF',
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name="home" size={28} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="download"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Download',
+          tabBarIcon: ({ color }) => <MaterialIcons name="file-download" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="convert"
+        options={{
+          title: 'Convert',
+          tabBarIcon: ({ color }) => <MaterialIcons name="transform" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="edit"
+        options={{
+          title: 'Edit',
+          tabBarIcon: ({ color }) => <MaterialIcons name="edit" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color }) => <MaterialIcons name="settings" size={28} color={color} />,
         }}
       />
     </Tabs>

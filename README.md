@@ -1,50 +1,67 @@
-# Welcome to your Expo app 👋
+# 🚀 MediaForge
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**MediaForge** is a complete, offline-first React Native Expo application for video handling. It includes features for downloading videos, converting video to audio, creating videos from audio, and basic video editing. 
 
-## Get started
+> **Note:** The current version utilizes mock implementations for processing services to provide a responsive UI. To connect with real FFmpeg processing, you should integrate \`ffmpeg-kit-react-native\` and compile with Expo Prebuild (EAS).
 
-1. Install dependencies
+## 🎯 Features
 
-   ```bash
+1. **Video Downloader (Mocked)**: Simulate downloading videos from URLs to local storage.
+2. **Video → Audio Converter**: Pick videos and simulate conversion to MP3/AAC.
+3. **Audio → Video Creator**: Turn audio into MP4 files using a static image or gradient.
+4. **Basic Video Editing**: Select a video and apply simulated edits like cinematic filters.
+5. **Offline Support**: Designed to handle all files within the local device storage without the need for an external backend processing service.
+
+## 🧠 Tech Stack
+
+- **Framework**: React Native with Expo SDK 54
+- **Navigation**: Expo Router (Bottom Tabs)
+- **State Management**: Zustand
+- **Styling**: NativeWind (Tailwind CSS v3)
+- **Media**: \`expo-av\`, \`expo-image-picker\`, \`expo-media-library\`
+- **File System**: \`expo-file-system\`
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js installed
+- Expo Go app on your phone OR an Android/iOS emulator
+
+### Installation
+
+1. Clone or download the repository.
+2. Install dependencies:
+   \`\`\`bash
    npm install
-   ```
+   \`\`\`
+3. Start the project:
+   \`\`\`bash
+   npm start
+   \`\`\`
+4. Open the Expo Go app on your mobile device and scan the QR code in the terminal.
 
-2. Start the app
+## 🛠 Building for Production (Native code requiring FFmpeg)
 
-   ```bash
-   npx expo start
-   ```
+Since \`ffmpeg-kit-react-native\` is a native module, it cannot run inside Expo Go directly once fully implemented.
 
-In the output, you'll find options to open the app in a
+1. Prebuild the project to generate \`ios\` and \`android\` folders:
+   \`\`\`bash
+   npx expo prebuild
+   \`\`\`
+2. Run locally on a simulator/device:
+   \`\`\`bash
+   npx expo run:android
+   # or
+   npx expo run:ios
+   \`\`\`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📝 Legal & Safety
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+> “You are responsible for content rights. Private and DRM-protected videos are not supported.”
 
-## Get a fresh project
+## 🔮 Future Improvements
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Connect \`ffmpeg-kit-react-native\` for real local video/audio manipulation.
+- Implement real extractors (e.g., youtube-dl based endpoints) for the downloader.
+- Google Ads integration for monetization.
